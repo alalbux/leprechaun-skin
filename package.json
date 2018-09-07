@@ -1,0 +1,52 @@
+{
+  "name": "leprechaun-skin",
+  "version": "1.0.0",
+  "description": "A skin for leprechaun",
+  "main": "dist/index.js",
+  "scripts": {
+    "build:copy": "cpx -v $WATCH 'src/styles/**' dist/styles",
+    "build:compile": "env NODE_ENV=production babel $WATCH src -d dist --ignore test,spec.js,test.js",
+    "build": "run-p build:copy build:compile",
+    "start": "env WATCH=-w run-p build:copy build:compile",
+    "lint": "eslint 'src/**/*.js'; stylelint 'src/**/*.css'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alalbux/leprechaun-skin.git"
+  },
+  "author": "Amanda Albuquerque",
+  "license": "ISC",
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/alalbux/leprechaun-skin/issues"
+  },
+  "homepage": "https://github.com/alalbux/leprechaun-skin#readme",
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.26.0",
+    "babel-preset-react-app": "3.1.1",
+    "babel-runtime": "6.26.0",
+    "cpx": "^1.5.0",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-pagarme-react": "1.2.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "npm-run-all": "4.1.2",
+    "prop-types": "15.6.0",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "stylelint": "8.4.0",
+    "stylelint-config-pagarme-react": "1.2.0"
+  },
+  "peerDependencies": {
+    "prop-types": "*",
+    "react": "*",
+    "react-dom": "*"
+  }
+}
